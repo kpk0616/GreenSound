@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             TabView {
-                Text("리이오 컨텐츠")
+                LeeoView()
                     .tabItem {
                         Text("리이오")
                 }.tag(1)
