@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58BB719F2A7949B800DA6B0E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB719E2A7949B800DA6B0E /* NetworkManager.swift */; };
+		58BB71A12A79570E00DA6B0E /* LeeoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB71A02A79570E00DA6B0E /* LeeoView.swift */; };
 		B859EC2F2A728837001E68B9 /* GreenSoundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B859EC2E2A728837001E68B9 /* GreenSoundApp.swift */; };
 		B859EC312A728837001E68B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B859EC302A728837001E68B9 /* ContentView.swift */; };
 		B859EC332A728839001E68B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B859EC322A728839001E68B9 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58BB719E2A7949B800DA6B0E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		58BB71A02A79570E00DA6B0E /* LeeoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeeoView.swift; sourceTree = "<group>"; };
 		B859EC2B2A728837001E68B9 /* GreenSound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenSound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B859EC2E2A728837001E68B9 /* GreenSoundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenSoundApp.swift; sourceTree = "<group>"; };
 		B859EC302A728837001E68B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 				B859EC302A728837001E68B9 /* ContentView.swift */,
 				B859EC322A728839001E68B9 /* Assets.xcassets */,
 				B859EC342A728839001E68B9 /* Preview Content */,
+				58BB719E2A7949B800DA6B0E /* NetworkManager.swift */,
+				58BB71A02A79570E00DA6B0E /* LeeoView.swift */,
 			);
 			path = GreenSound;
 			sourceTree = "<group>";
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58BB719F2A7949B800DA6B0E /* NetworkManager.swift in Sources */,
+				58BB71A12A79570E00DA6B0E /* LeeoView.swift in Sources */,
 				B859EC312A728837001E68B9 /* ContentView.swift in Sources */,
 				B859EC2F2A728837001E68B9 /* GreenSoundApp.swift in Sources */,
 			);
