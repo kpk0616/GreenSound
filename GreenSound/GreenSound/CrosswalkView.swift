@@ -21,7 +21,8 @@ struct CrosswalkView: View {
         
         ZStack {
             ZStack {
-                // Camera View
+              HostedViewController()
+                  .ignoresSafeArea()
                 if !isCorrectDirection { // TODO: toggle
                     Image("warningSign")
                 }
