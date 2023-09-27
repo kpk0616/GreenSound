@@ -15,7 +15,7 @@
 		B859EC362A728839001E68B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B859EC352A728839001E68B9 /* Preview Assets.xcassets */; };
 		B8841B102ABDF40600C65EA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8841B0F2ABDF40600C65EA3 /* ViewController.swift */; };
 		B8841B122ABDF41A00C65EA3 /* Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8841B112ABDF41A00C65EA3 /* Detector.swift */; };
-		B8841B142ABDF46800C65EA3 /* CrossWalkClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B8841B132ABDF46800C65EA3 /* CrossWalkClassifier.mlmodel */; };
+		B8841B192AC19F6800C65EA3 /* CrosswalkAndTrafficlight.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B8841B182AC19F6800C65EA3 /* CrosswalkAndTrafficlight.mlmodel */; };
 		B8DA6AAA2A795D110015B0E3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8DA6AA92A795D110015B0E3 /* Launch Screen.storyboard */; };
 		B8DA6AAD2A79642A0015B0E3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA6AAC2A79642A0015B0E3 /* HomeView.swift */; };
 		B8DA6AB02A796A450015B0E3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B8DA6AAF2A796A450015B0E3 /* Lottie */; };
@@ -34,7 +34,7 @@
 		B859EC352A728839001E68B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8841B0F2ABDF40600C65EA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B8841B112ABDF41A00C65EA3 /* Detector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detector.swift; sourceTree = "<group>"; };
-		B8841B132ABDF46800C65EA3 /* CrossWalkClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CrossWalkClassifier.mlmodel; sourceTree = "<group>"; };
+		B8841B182AC19F6800C65EA3 /* CrosswalkAndTrafficlight.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CrosswalkAndTrafficlight.mlmodel; sourceTree = "<group>"; };
 		B8DA6AA92A795D110015B0E3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B8DA6AAB2A795EFD0015B0E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B8DA6AAC2A79642A0015B0E3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -102,9 +102,9 @@
 		B8841B152ABDF4C400C65EA3 /* CrosswalkDetector */ = {
 			isa = PBXGroup;
 			children = (
+				B8841B182AC19F6800C65EA3 /* CrosswalkAndTrafficlight.mlmodel */,
 				B8841B0F2ABDF40600C65EA3 /* ViewController.swift */,
 				B8841B112ABDF41A00C65EA3 /* Detector.swift */,
-				B8841B132ABDF46800C65EA3 /* CrossWalkClassifier.mlmodel */,
 			);
 			path = CrosswalkDetector;
 			sourceTree = "<group>";
@@ -188,7 +188,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				58BB719F2A7949B800DA6B0E /* NetworkManager.swift in Sources */,
-				B8841B142ABDF46800C65EA3 /* CrossWalkClassifier.mlmodel in Sources */,
 				58BB71A12A79570E00DA6B0E /* LeeoView.swift in Sources */,
 				B8DA6AB22A796A5C0015B0E3 /* LottieView.swift in Sources */,
 				B8DA6AAD2A79642A0015B0E3 /* HomeView.swift in Sources */,
@@ -196,6 +195,7 @@
 				B859EC312A728837001E68B9 /* ContentView.swift in Sources */,
 				B8841B102ABDF40600C65EA3 /* ViewController.swift in Sources */,
 				B859EC2F2A728837001E68B9 /* GreenSoundApp.swift in Sources */,
+				B8841B192AC19F6800C65EA3 /* CrosswalkAndTrafficlight.mlmodel in Sources */,
 				B8841B122ABDF41A00C65EA3 /* Detector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

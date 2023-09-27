@@ -12,7 +12,7 @@ import UIKit
 extension ViewController {
     
     func setupDetector() {
-        let modelURL = Bundle.main.url(forResource: "CrossWalkClassifier", withExtension: "mlmodelc")
+        let modelURL = Bundle.main.url(forResource: "CrosswalkAndTrafficlight", withExtension: "mlmodelc")
     
         do {
             let visionModel = try VNCoreMLModel(for: MLModel(contentsOf: modelURL!))
@@ -37,7 +37,8 @@ extension ViewController {
         
         for observation in results where observation is VNRecognizedObjectObservation {
             guard let objectObservation = observation as? VNRecognizedObjectObservation else { continue }
-            
+          
+            print(objectObservation.labels.first?.identifier)
             // Transformations
             let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(screenRect.size.width), Int(screenRect.size.height))
             let transformedBounds = CGRect(x: objectBounds.minX, y: screenRect.size.height - objectBounds.maxY, width: objectBounds.maxX - objectBounds.minX, height: objectBounds.maxY - objectBounds.minY)
@@ -45,13 +46,7 @@ extension ViewController {
             let boxLayer = self.drawBoundingBox(transformedBounds)
 
             detectionLayer.addSublayer(boxLayer)
-          
         }
-      if detectionLayer.sublayers == nil {
-        print("횡단보도 아님")
-      } else {
-        print("횡단보도")
-      }
     }
     
     func setupLayers() {
