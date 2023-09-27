@@ -18,6 +18,8 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     private var previewLayer = AVCaptureVideoPreviewLayer()
     var screenRect: CGRect! = nil // For view dimensions
     
+    var prevLabel: String? = ""
+    var nowLabel: String? = ""
     // Detector
     private var videoOutput = AVCaptureVideoDataOutput()
     var requests = [VNRequest]()

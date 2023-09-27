@@ -11,6 +11,8 @@ import UIKit
 
 extension ViewController {
     
+    
+    
     func setupDetector() {
         let modelURL = Bundle.main.url(forResource: "CrosswalkAndTrafficlight", withExtension: "mlmodelc")
     
@@ -38,7 +40,19 @@ extension ViewController {
         for observation in results where observation is VNRecognizedObjectObservation {
             guard let objectObservation = observation as? VNRecognizedObjectObservation else { continue }
           
+            prevLabel = nowLabel
             print(objectObservation.labels.first?.identifier)
+            let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+            impactFeedbackGenerator.prepare()
+            impactFeedbackGenerator.impactOccurred()
+            
+            Thread.sleep(forTimeInterval: 1.0)
+            nowLabel = objectObservation.labels.first?.identifier
+            
+            if prevLabel == "red", nowLabel == "green" {
+                print("신호가 바뀜")
+                // 신호가 바뀌었음을 알리는 소리 재생
+            }
             // Transformations
             let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(screenRect.size.width), Int(screenRect.size.height))
             let transformedBounds = CGRect(x: objectBounds.minX, y: screenRect.size.height - objectBounds.maxY, width: objectBounds.maxX - objectBounds.minX, height: objectBounds.maxY - objectBounds.minY)
