@@ -9,19 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            TabView {
-                LeeoView()
-                    .tabItem {
-                        Text("리이오")
-                }.tag(1)
-                HomeView()
-                    .tabItem {
-                        Text("웨스트")
-                }.tag(2)
-            }
-        }
-        .padding()
+        HomeView()
     }
 }
 

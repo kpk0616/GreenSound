@@ -36,20 +36,20 @@ struct CrosswalkView: View {
                         .scaledToFit()
                 }
                 Spacer()
-                    .frame(maxHeight: 210)
-                ZStack {
-                    Rectangle()
-                        .foregroundColor(trafficColor)
-                    VStack {
-                        Text(timeText)
-                            .foregroundColor(.white)
-                            .font(.system(size: 120, weight: .heavy))
-                            .padding([.bottom])
-                        Text(directionText)
-                            .foregroundColor(.white)
-                            .font(.system(size: 40, weight: .heavy))
-                    }
-                }
+//                    .frame(maxHeight: 210)
+//                ZStack {
+//                    Rectangle()
+//                        .foregroundColor(trafficColor)
+//                    VStack {
+//                        Text(timeText)
+//                            .foregroundColor(.white)
+//                            .font(.system(size: 120, weight: .heavy))
+//                            .padding([.bottom])
+//                        Text(directionText)
+//                            .foregroundColor(.white)
+//                            .font(.system(size: 40, weight: .heavy))
+//                    }
+//                }
             }
         }.ignoresSafeArea()
     }

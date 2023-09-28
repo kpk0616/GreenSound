@@ -46,7 +46,7 @@ extension ViewController {
             impactFeedbackGenerator.prepare()
             impactFeedbackGenerator.impactOccurred()
             
-            Thread.sleep(forTimeInterval: 1.0)
+            //Thread.sleep(forTimeInterval: 1.0)
             nowLabel = objectObservation.labels.first?.identifier
             
             if prevLabel == "red", nowLabel == "green" {
