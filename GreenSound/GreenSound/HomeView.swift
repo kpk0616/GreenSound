@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var isSearchingCurrentLocation = true
     @State private var isSearchingText = "현위치 탐색 중"
-    @State private var isShowingCrosswalkView = false
+//    @State private var isShowingCrosswalkView = false
     
     var body: some View {
         ZStack {
@@ -45,9 +45,9 @@ struct HomeView: View {
                     .foregroundColor(.white)
                     .padding([.bottom], 86)
             }
-            if (isShowingCrosswalkView) {
-                CrosswalkView(isShowingCrosswalkView: $isShowingCrosswalkView)
-            }
+//            if (isShowingCrosswalkView) {
+                CrosswalkView()
+//            }
         }
     }
 }
@@ -56,11 +56,11 @@ extension HomeView {
     private func searchCurrentLocation() {
         isSearchingCurrentLocation.toggle()
         if (isSearchingCurrentLocation) {
-            isShowingCrosswalkView = false
+//            isShowingCrosswalkView = false
             isSearchingText = "현위치 탐색 중"
         } else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                isShowingCrosswalkView.toggle()
+//                isShowingCrosswalkView.toggle()
             }
             isSearchingText = "현위치 탐색 완료"
         }

@@ -104,10 +104,10 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         screenRect = UIScreen.main.bounds
         
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = CGRect(x: 0, y: 0, width: screenRect.size.width, height: screenRect.size.height)
+        previewLayer.frame = CGRect(x: 0, y: 0, width: screenRect.size.width, height: 473)
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill // Fill screen
         previewLayer.connection?.videoOrientation = .portrait
-      previewLayer.backgroundColor = CGColor.init(red: 1, green: 0, blue: 0, alpha: 0)
+        previewLayer.backgroundColor = CGColor.init(red: 1, green: 0, blue: 0, alpha: 0)
         
         // Detector
         videoOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "sampleBufferQueue"))
