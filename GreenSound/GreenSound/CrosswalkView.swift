@@ -57,7 +57,7 @@ struct CrosswalkView: View {
                 Button {
                     isExitApp.toggle()
                 } label: {
-                    Image("endButton", label: Text("종료하기 버튼"))
+                    Image("endButton")
                         .resizable()
                         .scaledToFit()
                 }
@@ -69,8 +69,6 @@ struct CrosswalkView: View {
                     
                     return Alert(title: Text("앱을 종료할까요?"), message: nil, primaryButton: .default(Text("계속 사용")), secondaryButton: exitButton)
                 }
-                .accessibilityLabel("종료하기 버튼")
-                .accessibilityHint("현재 앱을 종료합니다.")
                 viewController
                     .frame(height: 473)
                 Spacer()
