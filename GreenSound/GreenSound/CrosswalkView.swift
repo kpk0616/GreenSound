@@ -7,9 +7,32 @@
 
 import SwiftUI
 
+enum PedestrianStatus {
+    case finding
+    case arrived
+    case leave
+    case crossing
+    case haveToDepart
+}
+
+class StatusManager: ObservableObject {
+    static let shared = StatusManager()
+    
+    private init() { }
+        
+    // Example property
+    @Published var status: PedestrianStatus = .finding
+    
+    // Example method
+    func updateStatus(to newStatus: PedestrianStatus) {
+        status = newStatus
+    }
+}
+
 struct CrosswalkView: View {
     @State private var backgroundColor = Color("mainYellow")
     private var viewController = HostedViewController()
+    @ObservedObject private var pedestrianStatusManager: StatusManager = StatusManager.shared
     
     var body: some View {
         ZStack {
@@ -25,7 +48,17 @@ struct CrosswalkView: View {
                 Spacer()
                 VStack {
                     LottieView(jsonName: "loading")
-                    Image("finding")
+                    switch pedestrianStatusManager.status {
+                    case .finding:
+                        Image("finding")
+                    case .arrived:
+                        Image("arriveSign")
+                    case .haveToDepart:
+                        Image("greenSign")
+                    default:
+                        Image("finding")
+                    }
+                    
                 }
                 .background(backgroundColor)
             }

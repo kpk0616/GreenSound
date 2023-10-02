@@ -45,12 +45,14 @@ extension ViewController {
             let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
             impactFeedbackGenerator.prepare()
             impactFeedbackGenerator.impactOccurred()
+            StatusManager.shared.updateStatus(to: .arrived)
             
             //Thread.sleep(forTimeInterval: 1.0)
             nowLabel = objectObservation.labels.first?.identifier
             
             if prevLabel == "red", nowLabel == "green" {
                 print("신호가 바뀜")
+                StatusManager.shared.updateStatus(to: .haveToDepart)
                 // 신호가 바뀌었음을 알리는 소리 재생
             }
             // Transformations
