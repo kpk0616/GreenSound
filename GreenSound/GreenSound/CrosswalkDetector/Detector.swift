@@ -41,6 +41,7 @@ extension ViewController {
             emptyCount += 1
             // 횡단보도 이탈 감지
             if StatusManager.shared.status == .haveToDepart, emptyCount % 70 == 0 {
+                StatusManager.shared.status = .leave
                 StatusManager.shared.playSound("10_횡단보도이탈")
                 emptyCount = 0
             }
@@ -52,9 +53,6 @@ extension ViewController {
           
             prevLabel = nowLabel
             print(objectObservation.labels.first?.identifier)
-            let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
-            impactFeedbackGenerator.prepare()
-            impactFeedbackGenerator.impactOccurred()
             detectorCounting(objectObservation)
             
             if StatusManager.shared.status == .finding, crossWalkDetedtedCount == 140 {
@@ -63,6 +61,7 @@ extension ViewController {
                 StatusManager.shared.playSound("05_횡단보도도착")
                 crossWalkDetedtedCount = 0
             } else if crossWalkDetedtedCount == 140 {
+                StatusManager.shared.status = .crossing
                 StatusManager.shared.playSound("04_횡단보도가까이")
                 crossWalkDetedtedCount = 0
             } else if StatusManager.shared.status != .haveToDepart, StatusManager.shared.status != .redSign, greenSignCount == 40 {
@@ -105,6 +104,9 @@ extension ViewController {
         switch (observation.labels.first?.identifier ?? "") {
         case "Crosswalks", "crosswalk":
             crossWalkDetedtedCount += 1
+            let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+            impactFeedbackGenerator.prepare()
+            impactFeedbackGenerator.impactOccurred()
         case "red":
             redSignCount += 1
             greenSignCount = 0

@@ -87,6 +87,10 @@ struct CrosswalkView: View {
                             Image("greenSign")
                         case .redSign:
                             Image("redSign")
+                        case .leave:
+                            Image("leaveSign")
+                        case .crossing:
+                            Image("crossing")
                         default:
                             Image("finding")
                         }
