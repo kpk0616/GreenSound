@@ -23,6 +23,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     var crossWalkDetedtedCount = 0
     var redSignCount = 0
     var greenSignCount = 0
+    var emptyCount = 0
     // Detector
     private var videoOutput = AVCaptureVideoDataOutput()
     var requests = [VNRequest]()

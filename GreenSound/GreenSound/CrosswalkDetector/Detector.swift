@@ -36,7 +36,18 @@ extension ViewController {
     func extractDetections(_ results: [VNObservation]) {
         detectionLayer.sublayers = nil
         
+        if results.isEmpty {
+            print("물체 없음")
+            emptyCount += 1
+            // 횡단보도 이탈 감지
+            if StatusManager.shared.status == .haveToDepart, emptyCount % 70 == 0 {
+                StatusManager.shared.playSound("10_횡단보도이탈")
+                emptyCount = 0
+            }
+        }
+        
         for observation in results where observation is VNRecognizedObjectObservation {
+            emptyCount = 0
             guard let objectObservation = observation as? VNRecognizedObjectObservation else { continue }
           
             prevLabel = nowLabel
@@ -46,17 +57,20 @@ extension ViewController {
             impactFeedbackGenerator.impactOccurred()
             detectorCounting(objectObservation)
             
-            if crossWalkDetedtedCount == 30 {
+            if StatusManager.shared.status != .haveToDepart, crossWalkDetedtedCount == 70 {
                 print("횡단보도 10번 인식 후 재생")
                 StatusManager.shared.updateStatus(to: .arrived)
                 StatusManager.shared.playSound("05_횡단보도도착")
                 crossWalkDetedtedCount = 0
-            } else if StatusManager.shared.status != .haveToDepart, greenSignCount == 20 {
+            } else if crossWalkDetedtedCount == 70 {
+                StatusManager.shared.playSound("04_횡단보도가까이")
+                crossWalkDetedtedCount = 0
+            } else if StatusManager.shared.status != .haveToDepart, greenSignCount == 40 {
                 // 초록불이지만 건너면 안 되는 경우
                 StatusManager.shared.status = .arrived
                 StatusManager.shared.playSound("07_초록불다음신호")
                 greenSignCount = 0
-            } else if redSignCount == 20 {
+            } else if redSignCount == 40 {
                 StatusManager.shared.status = .redSign
                 StatusManager.shared.playSound("09_빨간불")
                 redSignCount = 0
