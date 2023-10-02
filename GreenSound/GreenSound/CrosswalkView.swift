@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVKit
 
 enum PedestrianStatus {
     case finding
@@ -17,6 +18,7 @@ enum PedestrianStatus {
 
 class StatusManager: ObservableObject {
     static let shared = StatusManager()
+    var player: AVAudioPlayer?
     
     private init() { }
         
@@ -26,6 +28,19 @@ class StatusManager: ObservableObject {
     // Example method
     func updateStatus(to newStatus: PedestrianStatus) {
         status = newStatus
+    }
+    
+    func playSound(_ sound: String) {
+        guard let url = Bundle.main.url(forResource: sound, withExtension: "mp3") else {
+            print("URL 에러")
+            return }
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+            print("음성안내 재생")
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 
@@ -58,12 +73,14 @@ struct CrosswalkView: View {
                     default:
                         Image("finding")
                     }
-                    
                 }
                 .background(backgroundColor)
             }
         }
         .background(backgroundColor)
+        .onAppear {
+            StatusManager.shared.playSound("01_안내시작")
+        }
     }
 }
 

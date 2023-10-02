@@ -20,6 +20,9 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     var prevLabel: String? = ""
     var nowLabel: String? = ""
+    var crossWalkDetedtedCount = 0
+    var redSignCount = 0
+    var greenSignCount = 0
     // Detector
     private var videoOutput = AVCaptureVideoDataOutput()
     var requests = [VNRequest]()
@@ -28,7 +31,6 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
       
     override func viewDidLoad() {
         checkPermission()
-        
         sessionQueue.async { [unowned self] in
             guard permissionGranted else { return }
             self.setupCaptureSession()

@@ -15,7 +15,6 @@ extension ViewController {
     
     func setupDetector() {
         let modelURL = Bundle.main.url(forResource: "CrosswalkAndTrafficlight", withExtension: "mlmodelc")
-    
         do {
             let visionModel = try VNCoreMLModel(for: MLModel(contentsOf: modelURL!))
             let recognitions = VNCoreMLRequest(model: visionModel, completionHandler: detectionDidComplete)
@@ -45,7 +44,20 @@ extension ViewController {
             let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
             impactFeedbackGenerator.prepare()
             impactFeedbackGenerator.impactOccurred()
-            StatusManager.shared.updateStatus(to: .arrived)
+            detectorCounting(objectObservation)
+            
+            if crossWalkDetedtedCount == 30 {
+                print("횡단보도 10번 인식 후 재생")
+                StatusManager.shared.updateStatus(to: .arrived)
+                StatusManager.shared.playSound("05_횡단보도도착")
+                crossWalkDetedtedCount = 0
+            } else if greenSignCount == 20 {
+                StatusManager.shared.playSound("07_초록불다음신호")
+                greenSignCount = 0
+            } else if redSignCount == 20 {
+                StatusManager.shared.playSound("09_빨간불")
+                redSignCount = 0
+            }
             
             //Thread.sleep(forTimeInterval: 1.0)
             nowLabel = objectObservation.labels.first?.identifier
@@ -53,6 +65,7 @@ extension ViewController {
             if prevLabel == "red", nowLabel == "green" {
                 print("신호가 바뀜")
                 StatusManager.shared.updateStatus(to: .haveToDepart)
+                StatusManager.shared.playSound("08_초록불건너자")
                 // 신호가 바뀌었음을 알리는 소리 재생
             }
             // Transformations
@@ -63,6 +76,26 @@ extension ViewController {
 
             detectionLayer.addSublayer(boxLayer)
         }
+    }
+    
+    func detectorCounting(_ observation: VNRecognizedObjectObservation) {
+        // 빨간불, 파란불, 횡단보도 횟수 카운팅
+        
+        switch (observation.labels.first?.identifier ?? "") {
+        case "Crosswalks", "crosswalk":
+            crossWalkDetedtedCount += 1
+        case "red":
+            redSignCount += 1
+            greenSignCount = 0
+        case "green":
+            greenSignCount += 1
+            redSignCount = 0
+        default:
+            crossWalkDetedtedCount = 0
+            redSignCount = 0
+            greenSignCount = 0
+        }
+    
     }
     
     func setupLayers() {

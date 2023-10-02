@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		58BB719F2A7949B800DA6B0E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB719E2A7949B800DA6B0E /* NetworkManager.swift */; };
 		58BB71A12A79570E00DA6B0E /* LeeoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB71A02A79570E00DA6B0E /* LeeoView.swift */; };
+		B8309AFC2ACA895C00EEADFB /* 11_안내종료.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8309AF12ACA895C00EEADFB /* 11_안내종료.mp3 */; };
+		B8309AFD2ACA895C00EEADFB /* 01_안내시작.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8309AF22ACA895C00EEADFB /* 01_안내시작.mp3 */; };
+		B8309AFE2ACA895C00EEADFB /* 08_초록불건너자.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8309AF32ACA895C00EEADFB /* 08_초록불건너자.mp3 */; };
+		B8309AFF2ACA895C00EEADFB /* 05_횡단보도도착.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8309AF42ACA895C00EEADFB /* 05_횡단보도도착.mp3 */; };
+		B8309B002ACA895C00EEADFB /* 02_횡단보도찾기.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8309AF52ACA895C00EEADFB /* 02_횡단보도찾기.mp3 */; };
+		B8309B012ACA895C00EEADFB /* 09_빨간불.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8309AF62ACA895C00EEADFB /* 09_빨간불.mp3 */; };
+		B8309B022ACA895C00EEADFB /* 06_신호등찾기.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8309AF72ACA895C00EEADFB /* 06_신호등찾기.mp3 */; };
+		B8309B032ACA895C00EEADFB /* 03_횡단보도멀리.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8309AF82ACA895C00EEADFB /* 03_횡단보도멀리.mp3 */; };
+		B8309B042ACA895C00EEADFB /* 04_횡단보도가까이.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8309AF92ACA895C00EEADFB /* 04_횡단보도가까이.mp3 */; };
+		B8309B052ACA895C00EEADFB /* 10_횡단보도이탈.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8309AFA2ACA895C00EEADFB /* 10_횡단보도이탈.mp3 */; };
+		B8309B062ACA895C00EEADFB /* 07_초록불다음신호.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8309AFB2ACA895C00EEADFB /* 07_초록불다음신호.mp3 */; };
 		B859EC2F2A728837001E68B9 /* GreenSoundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B859EC2E2A728837001E68B9 /* GreenSoundApp.swift */; };
 		B859EC312A728837001E68B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B859EC302A728837001E68B9 /* ContentView.swift */; };
 		B859EC332A728839001E68B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B859EC322A728839001E68B9 /* Assets.xcassets */; };
@@ -27,6 +38,17 @@
 /* Begin PBXFileReference section */
 		58BB719E2A7949B800DA6B0E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		58BB71A02A79570E00DA6B0E /* LeeoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeeoView.swift; sourceTree = "<group>"; };
+		B8309AF12ACA895C00EEADFB /* 11_안내종료.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "11_안내종료.mp3"; sourceTree = "<group>"; };
+		B8309AF22ACA895C00EEADFB /* 01_안내시작.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "01_안내시작.mp3"; sourceTree = "<group>"; };
+		B8309AF32ACA895C00EEADFB /* 08_초록불건너자.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "08_초록불건너자.mp3"; sourceTree = "<group>"; };
+		B8309AF42ACA895C00EEADFB /* 05_횡단보도도착.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "05_횡단보도도착.mp3"; sourceTree = "<group>"; };
+		B8309AF52ACA895C00EEADFB /* 02_횡단보도찾기.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "02_횡단보도찾기.mp3"; sourceTree = "<group>"; };
+		B8309AF62ACA895C00EEADFB /* 09_빨간불.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "09_빨간불.mp3"; sourceTree = "<group>"; };
+		B8309AF72ACA895C00EEADFB /* 06_신호등찾기.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "06_신호등찾기.mp3"; sourceTree = "<group>"; };
+		B8309AF82ACA895C00EEADFB /* 03_횡단보도멀리.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "03_횡단보도멀리.mp3"; sourceTree = "<group>"; };
+		B8309AF92ACA895C00EEADFB /* 04_횡단보도가까이.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "04_횡단보도가까이.mp3"; sourceTree = "<group>"; };
+		B8309AFA2ACA895C00EEADFB /* 10_횡단보도이탈.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "10_횡단보도이탈.mp3"; sourceTree = "<group>"; };
+		B8309AFB2ACA895C00EEADFB /* 07_초록불다음신호.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "07_초록불다음신호.mp3"; sourceTree = "<group>"; };
 		B859EC2B2A728837001E68B9 /* GreenSound.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenSound.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B859EC2E2A728837001E68B9 /* GreenSoundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenSoundApp.swift; sourceTree = "<group>"; };
 		B859EC302A728837001E68B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,9 +77,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8309AF02ACA894300EEADFB /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				B8309AF22ACA895C00EEADFB /* 01_안내시작.mp3 */,
+				B8309AF52ACA895C00EEADFB /* 02_횡단보도찾기.mp3 */,
+				B8309AF82ACA895C00EEADFB /* 03_횡단보도멀리.mp3 */,
+				B8309AF92ACA895C00EEADFB /* 04_횡단보도가까이.mp3 */,
+				B8309AF42ACA895C00EEADFB /* 05_횡단보도도착.mp3 */,
+				B8309AF72ACA895C00EEADFB /* 06_신호등찾기.mp3 */,
+				B8309AFB2ACA895C00EEADFB /* 07_초록불다음신호.mp3 */,
+				B8309AF32ACA895C00EEADFB /* 08_초록불건너자.mp3 */,
+				B8309AF62ACA895C00EEADFB /* 09_빨간불.mp3 */,
+				B8309AFA2ACA895C00EEADFB /* 10_횡단보도이탈.mp3 */,
+				B8309AF12ACA895C00EEADFB /* 11_안내종료.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		B859EC222A728837001E68B9 = {
 			isa = PBXGroup;
 			children = (
+				B8309AF02ACA894300EEADFB /* Sounds */,
 				B859EC2D2A728837001E68B9 /* GreenSound */,
 				B859EC2C2A728837001E68B9 /* Products */,
 			);
@@ -173,10 +214,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8309AFF2ACA895C00EEADFB /* 05_횡단보도도착.mp3 in Resources */,
+				B8309AFC2ACA895C00EEADFB /* 11_안내종료.mp3 in Resources */,
 				B8DA6AB42A796AB10015B0E3 /* loading.json in Resources */,
 				B8DA6AAA2A795D110015B0E3 /* Launch Screen.storyboard in Resources */,
+				B8309B012ACA895C00EEADFB /* 09_빨간불.mp3 in Resources */,
+				B8309B052ACA895C00EEADFB /* 10_횡단보도이탈.mp3 in Resources */,
+				B8309AFE2ACA895C00EEADFB /* 08_초록불건너자.mp3 in Resources */,
+				B8309B002ACA895C00EEADFB /* 02_횡단보도찾기.mp3 in Resources */,
 				B859EC362A728839001E68B9 /* Preview Assets.xcassets in Resources */,
+				B8309B042ACA895C00EEADFB /* 04_횡단보도가까이.mp3 in Resources */,
 				B859EC332A728839001E68B9 /* Assets.xcassets in Resources */,
+				B8309B022ACA895C00EEADFB /* 06_신호등찾기.mp3 in Resources */,
+				B8309AFD2ACA895C00EEADFB /* 01_안내시작.mp3 in Resources */,
+				B8309B032ACA895C00EEADFB /* 03_횡단보도멀리.mp3 in Resources */,
+				B8309B062ACA895C00EEADFB /* 07_초록불다음신호.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +377,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GreenSound/Preview Content\"";
-				DEVELOPMENT_TEAM = QGAQ3AY3R3;
+				DEVELOPMENT_TEAM = 82Q43H4UQQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GreenSound/Info.plist;
@@ -342,7 +394,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.monthly.GreenSound;
+				PRODUCT_BUNDLE_IDENTIFIER = com.euiseopark.GreenSound;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -358,7 +410,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GreenSound/Preview Content\"";
-				DEVELOPMENT_TEAM = QGAQ3AY3R3;
+				DEVELOPMENT_TEAM = 82Q43H4UQQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GreenSound/Info.plist;
@@ -375,7 +427,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.monthly.GreenSound;
+				PRODUCT_BUNDLE_IDENTIFIER = com.euiseopark.GreenSound;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
