@@ -51,10 +51,13 @@ extension ViewController {
                 StatusManager.shared.updateStatus(to: .arrived)
                 StatusManager.shared.playSound("05_횡단보도도착")
                 crossWalkDetedtedCount = 0
-            } else if greenSignCount == 20 {
+            } else if StatusManager.shared.status != .haveToDepart, greenSignCount == 20 {
+                // 초록불이지만 건너면 안 되는 경우
+                StatusManager.shared.status = .arrived
                 StatusManager.shared.playSound("07_초록불다음신호")
                 greenSignCount = 0
             } else if redSignCount == 20 {
+                StatusManager.shared.status = .redSign
                 StatusManager.shared.playSound("09_빨간불")
                 redSignCount = 0
             }
@@ -62,7 +65,7 @@ extension ViewController {
             //Thread.sleep(forTimeInterval: 1.0)
             nowLabel = objectObservation.labels.first?.identifier
             
-            if prevLabel == "red", nowLabel == "green" {
+            if StatusManager.shared.status == .redSign, prevLabel == "red", nowLabel == "green" {
                 print("신호가 바뀜")
                 StatusManager.shared.updateStatus(to: .haveToDepart)
                 StatusManager.shared.playSound("08_초록불건너자")

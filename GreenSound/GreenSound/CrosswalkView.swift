@@ -11,6 +11,7 @@ import AVKit
 enum PedestrianStatus {
     case finding
     case arrived
+    case redSign
     case leave
     case crossing
     case haveToDepart
@@ -78,6 +79,17 @@ struct CrosswalkView: View {
             }
         }
         .background(backgroundColor)
+        .onChange(of: StatusManager.shared.status, perform: { status in
+            // 상태에 따라 배경색 변경
+            switch(status) {
+            case .finding, .arrived:
+                backgroundColor = Color("mainYellow")
+            case .redSign, .leave:
+                backgroundColor = Color("mainRed")
+            case .crossing, .haveToDepart:
+                backgroundColor = Color("mainGreen")
+            }
+        })
         .onAppear {
             StatusManager.shared.playSound("01_안내시작")
         }
