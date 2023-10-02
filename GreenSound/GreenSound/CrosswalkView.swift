@@ -22,7 +22,7 @@ class StatusManager: ObservableObject {
     var player: AVAudioPlayer?
     
     private init() { }
-        
+    
     // Example property
     @Published var status: PedestrianStatus = .finding
     
@@ -47,6 +47,7 @@ class StatusManager: ObservableObject {
 
 struct CrosswalkView: View {
     @State private var backgroundColor = Color("mainYellow")
+    @State private var isExitApp = false
     private var viewController = HostedViewController()
     @ObservedObject private var pedestrianStatusManager: StatusManager = StatusManager.shared
     
@@ -54,11 +55,22 @@ struct CrosswalkView: View {
         ZStack {
             VStack {
                 Button {
+                    isExitApp.toggle()
                 } label: {
                     Image("endButton", label: Text("종료하기 버튼"))
                         .resizable()
                         .scaledToFit()
                 }
+                .alert(isPresented: $isExitApp) {
+                    // 종료하기 버튼 Alert
+                    let exitButton = Alert.Button.cancel(Text("종료")) {
+                        exit(0)
+                    }
+                    
+                    return Alert(title: Text("앱을 종료할까요?"), message: nil, primaryButton: .default(Text("계속 사용")), secondaryButton: exitButton)
+                }
+                .accessibilityLabel("종료하기 버튼")
+                .accessibilityHint("현재 앱을 종료합니다.")
                 viewController
                     .frame(height: 473)
                 Spacer()
@@ -67,6 +79,7 @@ struct CrosswalkView: View {
                     switch pedestrianStatusManager.status {
                     case .finding:
                         Image("finding")
+                            .accessibilityRemoveTraits(.isImage)
                     case .arrived:
                         Image("arriveSign")
                     case .haveToDepart:
