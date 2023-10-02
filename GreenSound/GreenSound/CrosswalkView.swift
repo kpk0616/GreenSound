@@ -8,68 +8,34 @@
 import SwiftUI
 
 struct CrosswalkView: View {
-    @State private var trafficColor = Color.red
-    @State private var isPossibleCross = false
-    @State private var timeText = "정지"
-    @State private var directionText = "어느 방향"
-    @State private var crossWalkTime = -1
-    @State private var isCorrectDirection = true
-    
-    @Binding var isShowingCrosswalkView: Bool
+    @State private var backgroundColor = Color("mainYellow")
+    private var viewController = HostedViewController()
     
     var body: some View {
-        
         ZStack {
-            ZStack {
-              HostedViewController()
-                  .ignoresSafeArea()
-                if !isCorrectDirection { // TODO: toggle
-                    Image("warningSign")
-                }
-            }
             VStack {
                 Button {
-                    isShowingCrosswalkView.toggle()
                 } label: {
-                    Image("backToBeginButton")
+                    Image("endButton", label: Text("종료하기 버튼"))
                         .resizable()
                         .scaledToFit()
                 }
+                viewController
+                    .frame(height: 473)
                 Spacer()
-//                    .frame(maxHeight: 210)
-//                ZStack {
-//                    Rectangle()
-//                        .foregroundColor(trafficColor)
-//                    VStack {
-//                        Text(timeText)
-//                            .foregroundColor(.white)
-//                            .font(.system(size: 120, weight: .heavy))
-//                            .padding([.bottom])
-//                        Text(directionText)
-//                            .foregroundColor(.white)
-//                            .font(.system(size: 40, weight: .heavy))
-//                    }
-//                }
+                VStack {
+                    LottieView(jsonName: "loading")
+                    Image("finding")
+                }
+                .background(backgroundColor)
             }
-        }.ignoresSafeArea()
-    }
-}
-
-extension CrosswalkView {
-    private func judgeIsPossibleCross() { // TODO: 실행
-        if (isPossibleCross) {
-            trafficColor = .green
-            timeText = "\(crossWalkTime)초"
-        } else {
-            trafficColor = .red
-            timeText = "정지"
-            crossWalkTime = -1
         }
+        .background(backgroundColor)
     }
 }
 
 struct CrosswalkView_Previews: PreviewProvider {
     static var previews: some View {
-        CrosswalkView(isShowingCrosswalkView: .constant(false))
+        CrosswalkView()
     }
 }
