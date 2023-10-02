@@ -51,6 +51,8 @@ struct CrosswalkView: View {
     private var viewController = HostedViewController()
     @ObservedObject private var pedestrianStatusManager: StatusManager = StatusManager.shared
     
+    @State private var hideButton: Bool = false
+    
     var body: some View {
         ZStack {
             VStack {
@@ -72,21 +74,111 @@ struct CrosswalkView: View {
                 viewController
                     .frame(height: 473)
                 Spacer()
-                VStack {
-                    LottieView(jsonName: "loading")
-                    switch pedestrianStatusManager.status {
-                    case .finding:
-                        Image("finding")
-                            .accessibilityRemoveTraits(.isImage)
-                    case .arrived:
-                        Image("arriveSign")
-                    case .haveToDepart:
-                        Image("greenSign")
-                    case .redSign:
-                        Image("redSign")
-                    default:
-                        Image("finding")
+                ZStack {
+                    VStack {
+                        LottieView(jsonName: "loading")
+                        switch pedestrianStatusManager.status {
+                        case .finding:
+                            Image("finding")
+                                .accessibilityRemoveTraits(.isImage)
+                        case .arrived:
+                            Image("arriveSign")
+                        case .haveToDepart:
+                            Image("greenSign")
+                        case .redSign:
+                            Image("redSign")
+                        default:
+                            Image("finding")
+                        }
                     }
+                    VStack {
+                        
+                        HStack {
+                            Button {
+                                StatusManager.shared.playSound("05_횡단보도도착")
+                            } label: {
+                                Text("횡단보도도착")
+                                    .foregroundStyle(hideButton ? .clear : .blue)
+                            }
+                            
+                            Button {
+                                StatusManager.shared.playSound("10_횡단보도이탈")
+                            } label: {
+                                Text("횡단보도이탈")
+                                    .foregroundStyle(hideButton ? .clear : .blue)
+                            }
+                            
+                            Button {
+                                StatusManager.shared.playSound("04_횡단보도가까이")
+                            } label: {
+                                Text("횡단보도가까이")
+                                    .foregroundStyle(hideButton ? .clear : .blue)
+                            }
+                           
+                            Button {
+                                StatusManager.shared.playSound("07_초록불다음신호")
+                            } label: {
+                                Text("초록불다음신호")
+                                    .foregroundStyle(hideButton ? .clear : .blue)
+                            }
+                            
+                            Button {
+                                StatusManager.shared.playSound("09_빨간불")
+                            } label: {
+                                Text("초록불다음신호")
+                                    .foregroundStyle(hideButton ? .clear : .blue)
+                            }
+                            
+                            Button {
+                                StatusManager.shared.playSound("08_초록불건너자")
+                            } label: {
+                                Text("초록불건너자")
+                                    .foregroundStyle(hideButton ? .clear : .blue)
+                            }
+                            
+                        }
+                        HStack {
+                            Button {
+                                pedestrianStatusManager.updateStatus(to: .finding)
+                            } label: {
+                                Text("찾기")
+                                    .foregroundStyle(hideButton ? .clear : .blue)
+                            }
+                            .padding()
+                            
+                            Button {
+                                pedestrianStatusManager.updateStatus(to: .arrived)
+                            } label: {
+                                Text("도착")
+                                    .foregroundStyle(hideButton ? .clear : .blue)
+                            }.padding()
+                            
+                            Button {
+                                pedestrianStatusManager.updateStatus(to: .haveToDepart)
+                                
+                            } label: {
+                                Text("출발")
+                                    .foregroundStyle(hideButton ? .clear : .blue)
+                            }
+                            .padding()
+                            
+                            Button {
+                                pedestrianStatusManager.updateStatus(to: .redSign)
+                            } label: {
+                                Text("빨강대기")
+                                    .foregroundStyle(hideButton ? .clear : .blue)
+                            }
+                            .padding()
+                            Button {
+                                hideButton.toggle()
+                            } label: {
+                                Text("감추기")
+                                    .foregroundStyle(hideButton ? .clear : .blue)
+                            }
+                            .padding()
+                        }
+                    }
+                    .background(hideButton ? .clear : .yellow)
                 }
                 .background(backgroundColor)
             }
