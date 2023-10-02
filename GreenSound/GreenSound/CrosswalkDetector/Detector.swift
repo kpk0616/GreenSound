@@ -57,24 +57,28 @@ extension ViewController {
             impactFeedbackGenerator.impactOccurred()
             detectorCounting(objectObservation)
             
-            if StatusManager.shared.status != .haveToDepart, crossWalkDetedtedCount == 70 {
+            if StatusManager.shared.status == .finding, crossWalkDetedtedCount == 140 {
                 print("횡단보도 10번 인식 후 재생")
                 StatusManager.shared.updateStatus(to: .arrived)
                 StatusManager.shared.playSound("05_횡단보도도착")
                 crossWalkDetedtedCount = 0
-            } else if crossWalkDetedtedCount == 70 {
+            } else if crossWalkDetedtedCount == 140 {
                 StatusManager.shared.playSound("04_횡단보도가까이")
                 crossWalkDetedtedCount = 0
-            } else if StatusManager.shared.status != .haveToDepart, greenSignCount == 40 {
+            } else if StatusManager.shared.status != .haveToDepart, StatusManager.shared.status != .redSign, greenSignCount == 40 {
                 // 초록불이지만 건너면 안 되는 경우
                 StatusManager.shared.status = .arrived
                 StatusManager.shared.playSound("07_초록불다음신호")
                 greenSignCount = 0
-            } else if redSignCount == 40 {
+            } else if StatusManager.shared.status != .haveToDepart, redSignCount % 40 == 1 {
                 StatusManager.shared.status = .redSign
                 StatusManager.shared.playSound("09_빨간불")
                 redSignCount = 0
             }
+//            else if StatusManager.shared.status == .haveToDepart, greenSignCount >= 20 {
+//                // 지금 문제는, 빨간불 -> 초록불을 인식했음에도 다시 빨간불로 바뀌는 것.
+//
+//            }
             
             //Thread.sleep(forTimeInterval: 1.0)
             nowLabel = objectObservation.labels.first?.identifier
