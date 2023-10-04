@@ -39,9 +39,9 @@ extension ViewController {
         if results.isEmpty {
             print("물체 없음")
             emptyCount += 1
-            // 횡단보도 이탈 감지
-            if StatusManager.shared.status == .haveToDepart, emptyCount % 70 == 0 {
-                StatusManager.shared.status = .leave
+            // 횡단보도 이탈 감지 : red 혹은 green이 잡혀도 이탈로 판단해야함
+            if (StatusManager.shared.status == .haveToDepart || StatusManager.shared.status == .crossing || StatusManager.shared.status == .leave), emptyCount % 70 == 0 {
+                StatusManager.shared.updateStatus(to: .leave)
                 StatusManager.shared.playSound("10_횡단보도이탈")
                 emptyCount = 0
             }
@@ -58,35 +58,47 @@ extension ViewController {
             if StatusManager.shared.status == .finding, crossWalkDetedtedCount == 140 {
                 print("횡단보도 10번 인식 후 재생")
                 StatusManager.shared.updateStatus(to: .arrived)
-                StatusManager.shared.playSound("05_횡단보도도착")
+                StatusManager.shared.playSound("05_횡단보도도착및신호등안내")
                 crossWalkDetedtedCount = 0
-            } else if crossWalkDetedtedCount == 140 {
-                StatusManager.shared.status = .crossing
-                StatusManager.shared.playSound("04_횡단보도가까이")
-                crossWalkDetedtedCount = 0
-            } else if StatusManager.shared.status != .haveToDepart, StatusManager.shared.status != .redSign, greenSignCount == 40 {
+            }
+//            else if StatusManager.shared.status == .leave, crossWalkDetedtedCount == 100 {
+//                StatusManager.shared.updateStatus(to: .crossing)
+//                StatusManager.shared.playSound("04_안전횡단중") // 안전횡단중입니다
+//                crossWalkDetedtedCount = 0
+//            }
+            else if StatusManager.shared.status == .arrived, greenSignCount == 120 {
                 // 초록불이지만 건너면 안 되는 경우
-                StatusManager.shared.status = .arrived
+//                StatusManager.shared.status = .arrived
                 StatusManager.shared.playSound("07_초록불다음신호")
                 greenSignCount = 0
-            } else if StatusManager.shared.status != .haveToDepart, redSignCount % 40 == 1 {
-                StatusManager.shared.status = .redSign
+            } else if StatusManager.shared.status == .arrived, redSignCount % 80 == 1 { // StatusManager.shared.status != .haveToDepart 에서 변경
+                StatusManager.shared.updateStatus(to: .redSign)
                 StatusManager.shared.playSound("09_빨간불")
                 redSignCount = 0
             }
-//            else if StatusManager.shared.status == .haveToDepart, greenSignCount >= 20 {
-//                // 지금 문제는, 빨간불 -> 초록불을 인식했음에도 다시 빨간불로 바뀌는 것.
-//
-//            }
+            else if  StatusManager.shared.status == .leave {
+                let label = objectObservation.labels.first?.identifier ?? ""
+                if label != "Crosswalks", label != "crosswalk" {
+                    //                    StatusManager.shared.updateStatus(to: .leave)
+                    StatusManager.shared.playSound("10_횡단보도이탈")
+                }
+                else if crossWalkDetedtedCount >= 100 {
+                    StatusManager.shared.updateStatus(to: .crossing)
+                    StatusManager.shared.playSound("04_안전횡단중") // 안전횡단중입니다
+                    crossWalkDetedtedCount = 0
+                }
+            }
             
             //Thread.sleep(forTimeInterval: 1.0)
             nowLabel = objectObservation.labels.first?.identifier
             
-            if StatusManager.shared.status == .redSign, prevLabel == "red", nowLabel == "green" {
+//            if StatusManager.shared.status == .redSign, prevLabel == "red", nowLabel == "green" { // 횡단보도와 함께 인식되는 경우, 빨간불 -> 초록불 바로 인식 안 됨
+            if StatusManager.shared.status == .redSign, greenSignCount > 80 {
                 print("신호가 바뀜")
                 StatusManager.shared.updateStatus(to: .haveToDepart)
                 StatusManager.shared.playSound("08_초록불건너자")
                 // 신호가 바뀌었음을 알리는 소리 재생
+                greenSignCount = 0
             }
             // Transformations
             let objectBounds = VNImageRectForNormalizedRect(objectObservation.boundingBox, Int(screenRect.size.width), Int(screenRect.size.height))
@@ -114,9 +126,7 @@ extension ViewController {
             greenSignCount += 1
             redSignCount = 0
         default:
-            crossWalkDetedtedCount = 0
-            redSignCount = 0
-            greenSignCount = 0
+            print("detect something")
         }
     
     }
