@@ -30,7 +30,6 @@
 		B8841B122ABDF41A00C65EA3 /* Detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8841B112ABDF41A00C65EA3 /* Detector.swift */; };
 		B8841B192AC19F6800C65EA3 /* CrosswalkAndTrafficlight.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B8841B182AC19F6800C65EA3 /* CrosswalkAndTrafficlight.mlmodel */; };
 		B8DA6AAA2A795D110015B0E3 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8DA6AA92A795D110015B0E3 /* Launch Screen.storyboard */; };
-		B8DA6AAD2A79642A0015B0E3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA6AAC2A79642A0015B0E3 /* HomeView.swift */; };
 		B8DA6AB02A796A450015B0E3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B8DA6AAF2A796A450015B0E3 /* Lottie */; };
 		B8DA6AB22A796A5C0015B0E3 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DA6AB12A796A5C0015B0E3 /* LottieView.swift */; };
 		B8DA6AB42A796AB10015B0E3 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B8DA6AB32A796AB10015B0E3 /* loading.json */; };
@@ -63,7 +62,6 @@
 		B8841B182AC19F6800C65EA3 /* CrosswalkAndTrafficlight.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CrosswalkAndTrafficlight.mlmodel; sourceTree = "<group>"; };
 		B8DA6AA92A795D110015B0E3 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B8DA6AAB2A795EFD0015B0E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		B8DA6AAC2A79642A0015B0E3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B8DA6AB12A796A5C0015B0E3 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		B8DA6AB32A796AB10015B0E3 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		B8DA6AB52A796E940015B0E3 /* CrosswalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosswalkView.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 				B8DA6AB52A796E940015B0E3 /* CrosswalkView.swift */,
 				B8DA6AB32A796AB10015B0E3 /* loading.json */,
 				B8DA6AB12A796A5C0015B0E3 /* LottieView.swift */,
-				B8DA6AAC2A79642A0015B0E3 /* HomeView.swift */,
 				B8DA6AA92A795D110015B0E3 /* Launch Screen.storyboard */,
 				B8DA6AAB2A795EFD0015B0E3 /* Info.plist */,
 				B859EC2E2A728837001E68B9 /* GreenSoundApp.swift */,
@@ -250,7 +247,6 @@
 				58BB719F2A7949B800DA6B0E /* NetworkManager.swift in Sources */,
 				58BB71A12A79570E00DA6B0E /* LeeoView.swift in Sources */,
 				B8DA6AB22A796A5C0015B0E3 /* LottieView.swift in Sources */,
-				B8DA6AAD2A79642A0015B0E3 /* HomeView.swift in Sources */,
 				B8DA6AB62A796E940015B0E3 /* CrosswalkView.swift in Sources */,
 				B859EC312A728837001E68B9 /* ContentView.swift in Sources */,
 				B8841B102ABDF40600C65EA3 /* ViewController.swift in Sources */,
