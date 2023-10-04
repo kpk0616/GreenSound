@@ -15,6 +15,7 @@ enum PedestrianStatus {
     case leave
     case crossing
     case haveToDepart
+    case readyToNext
 }
 
 class StatusManager: ObservableObject {
@@ -76,23 +77,57 @@ struct CrosswalkView: View {
                 Spacer()
                 ZStack {
                     VStack {
-                        LottieView(jsonName: "loading")
                         switch pedestrianStatusManager.status {
                         case .finding:
+                            LottieView(jsonName: "loading")
                             Image("finding")
-                                .accessibilityRemoveTraits(.isImage)
                         case .arrived:
+                            LottieView(jsonName: "loading")
                             Image("arriveSign")
                         case .haveToDepart:
-                            Image("greenSign")
+                            HStack {
+                                Spacer()
+                                Image("greenSign")
+                                    .padding([.top, .bottom], 45)
+                                Spacer()
+                            }
                         case .redSign:
-                            Image("redSign")
+                            HStack {
+                                Spacer()
+                                Image("redSign")
+                                    .padding([.top], 50)
+                                    .padding([.bottom], 45)
+                                Spacer()
+                            }
                         case .leave:
-                            Image("leaveSign")
+                            HStack {
+                                Spacer()
+                                Image("leaveSign")
+                                    .padding([.top, .bottom], 45)
+                                Spacer()
+                            }
                         case .crossing:
-                            Image("crossing")
+                            HStack {
+                                Spacer()
+                                Image("crossing")
+                                    .padding([.top, .bottom], 45)
+                                Spacer()
+                            }
+                        case .readyToNext:
+                            HStack {
+                                Spacer()
+                                Image("nextSign")
+                                    .padding([.top, .bottom], 45)
+                                Spacer()
+                            }
                         default:
-                            Image("finding")
+                            HStack {
+                                Spacer()
+                                Image("finding")
+                                    .padding([.top], 50)
+                                    .padding([.bottom], 45)
+                                Spacer()
+            }
                         }
                     }
 //                    VStack {
@@ -191,7 +226,7 @@ struct CrosswalkView: View {
         .onChange(of: StatusManager.shared.status, perform: { status in
             // 상태에 따라 배경색 변경
             switch(status) {
-            case .finding, .arrived:
+            case .finding, .arrived, .readyToNext:
                 backgroundColor = Color("mainYellow")
             case .redSign, .leave:
                 backgroundColor = Color("mainRed")
